@@ -45,13 +45,13 @@ export class PostsService {
     return postDtos;
   }
 
-  async findOne(id: number): Promise<PostDto> {
+  async findOne(userId: number): Promise<PostDto> {
     const post = await this.prisma.post.findUnique({
-      where: { id },
+      where: { id: userId },
       include: { author: { select: { name: true } } },
     });
     if (!post) {
-      throw new NotFoundException(`Post with id ${id} not found`);
+      throw new NotFoundException(`Post with id ${userId} not found`);
     }
     return plainToInstance(PostDto, post, { excludeExtraneousValues: true });
   }
