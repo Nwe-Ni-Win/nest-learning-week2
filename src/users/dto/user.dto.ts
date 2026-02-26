@@ -12,6 +12,9 @@ export class UserDto {
   email: string;
 
   @Expose()
+  role: string;
+
+  @Expose()
   createdAt: Date;
 
   @Expose()

@@ -60,7 +60,12 @@ export class UsersService {
     await this.findOne(id);
     return this.prisma.user.update({
       where: { id },
-      data: { name: updateUserDto.name, email: updateUserDto.email },
+      data: {
+        name: updateUserDto.name,
+        email: updateUserDto.email,
+        role: updateUserDto.role,
+        refreshToken: updateUserDto.refreshToken,
+      },
     });
   }
 
