@@ -8,4 +8,12 @@ export class UpdateUserDto {
   @IsEmail()
   @IsOptional()
   email?: string;
+
+  @IsString()
+  @IsOptional()
+  refreshToken?: string;
+
+  @IsString()
+  @IsOptional()
+  role?: string;
 }
