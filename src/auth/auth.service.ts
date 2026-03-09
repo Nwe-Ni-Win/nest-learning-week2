@@ -37,6 +37,7 @@ export class AuthService {
       {
         sub: user.id,
         role: user.role,
+        version: user.tokenVersion,
       },
       { expiresIn: '15m' },
     );

@@ -14,16 +14,17 @@ datasource db {
 }
 
 model User{
-  id        Int       @id @default(autoincrement())
-  name      String
-  email     String    @unique
-  password  String
-  posts     Post[]
-  profile   Profile?
-  role      String     @default("USER")
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  password     String
+  posts        Post[]
+  profile      Profile?
+  role         String    @default("USER")
   refreshToken String?
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  tokenVersion Int       @default(0)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
 }
 
 model Profile{
